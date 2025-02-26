@@ -5,6 +5,8 @@ import com.example.AE5.Libreria.repository.AutorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AutorServiceImp implements AutorService{
 
@@ -14,9 +16,25 @@ public class AutorServiceImp implements AutorService{
     @Override
     public Autor agregarAutor(Autor autor) {
 
+    if(autorRepository.findByNombre(autor.getNombre()) == null){
+        return autorRepository.save(autor);
+    }else {
+        return null;
+    }
 
-            return autorRepository.save(autor);
 
 
+
+
+    }
+
+    @Override
+    public List<Autor> getAllAutores() {
+        return autorRepository.findAll();
+    }
+
+    @Override
+    public Autor getAutor(String nombre) {
+        return  autorRepository.findByNombre(nombre);
     }
 }

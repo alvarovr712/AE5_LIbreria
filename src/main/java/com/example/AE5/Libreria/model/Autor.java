@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 
+import java.io.Serializable;
 import java.time.LocalDate;
 @ToString
 @Getter
@@ -12,7 +13,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "autores")
-public class Autor {
+public class Autor implements Serializable {
 
 
     @Id
@@ -22,7 +23,7 @@ public class Autor {
     private String nombre;
     @Column
     private String apellidos;
-    @Column(name = "fechaNacimiento")
+    @Column(name = "fecha_nacimiento")
     private LocalDate fechaNacimiento;
 
 
