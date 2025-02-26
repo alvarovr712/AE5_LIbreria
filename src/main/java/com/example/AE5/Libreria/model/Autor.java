@@ -6,6 +6,9 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 @ToString
 @Getter
 @Setter
@@ -25,6 +28,9 @@ public class Autor implements Serializable {
     private String apellidos;
     @Column(name = "fecha_nacimiento")
     private LocalDate fechaNacimiento;
+
+    @OneToMany(mappedBy = "autor",fetch = FetchType.EAGER)
+    private List<Libro> libros = new ArrayList<>();
 
 
     public Autor(int id, String nombre, String apellidos, LocalDate fechaNacimiento) {
