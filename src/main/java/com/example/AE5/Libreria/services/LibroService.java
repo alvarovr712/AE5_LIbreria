@@ -11,4 +11,6 @@ public interface LibroService {
     public List<Libro> getAllLibros();
 
     public Libro getLibro(String nombre);
+
+    public List<Libro> allLibrosLibreria(int libreria_id);
 }

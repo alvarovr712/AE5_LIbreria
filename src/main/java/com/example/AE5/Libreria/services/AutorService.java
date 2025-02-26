@@ -9,4 +9,5 @@ public interface AutorService {
     public Autor agregarAutor(Autor autor);
     public List<Autor> getAllAutores();
     public Autor getAutor(String nombre);
+
 }

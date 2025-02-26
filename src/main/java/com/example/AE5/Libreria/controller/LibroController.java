@@ -2,6 +2,7 @@ package com.example.AE5.Libreria.controller;
 
 
 import com.example.AE5.Libreria.model.Editorial;
+import com.example.AE5.Libreria.model.Libreria;
 import com.example.AE5.Libreria.model.Libro;
 import com.example.AE5.Libreria.services.AutorService;
 import com.example.AE5.Libreria.services.EditorialService;
@@ -43,4 +44,11 @@ public class LibroController {
     public ResponseEntity<Libro> getLibro(@RequestParam String titulo){
         return new ResponseEntity<>(libroService.getLibro(titulo),HttpStatus.OK);
     }
+
+    @GetMapping("getLibrosLibreria")
+    public ResponseEntity<List<Libro>> getLibrosL(@RequestParam int libreria_id){
+        return new ResponseEntity<>(libroService.allLibrosLibreria(libreria_id),HttpStatus.OK);
+    }
+
+
 }

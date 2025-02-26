@@ -5,6 +5,8 @@ import com.example.AE5.Libreria.repository.LibreriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class LibreriaServiceImp implements LibreriaService{
 
@@ -21,4 +23,17 @@ public class LibreriaServiceImp implements LibreriaService{
             return null;
         }
     }
+
+    @Override
+    public List<Libreria> getAll() {
+        return libreriaRepository.findAll();
+    }
+
+    @Override
+    public Libreria getLibreria(String nombre) {
+        return libreriaRepository.findByName(nombre);
+    }
+
+
 }
+

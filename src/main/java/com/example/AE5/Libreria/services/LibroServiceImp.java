@@ -53,4 +53,9 @@ public class LibroServiceImp implements LibroService{
     public Libro getLibro(String titulo) {
         return libroRepository.findByTitulo(titulo);
     }
+
+    @Override
+    public List<Libro> allLibrosLibreria(int libreria_id) {
+        return libroRepository.buscarLibrosenLibreria(libreria_id);
+    }
 }
